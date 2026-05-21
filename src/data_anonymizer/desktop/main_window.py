@@ -104,6 +104,7 @@ class MainWindow(QMainWindow):
         for name, fname in (
             ("Pacienți (XML medical)", "medical_patient_sample.xml"),
             ("Charts (XML)", "feed_sample.xml"),
+            ("SIUI (XML atribute)", "siui_report_sample.xml"),
         ):
             act = QAction(name, self)
             act.triggered.connect(lambda _=False, f=fname: self._load_sample(f))
@@ -175,6 +176,7 @@ class MainWindow(QMainWindow):
         for label, fname in (
             ("Exemplu medical", "medical_patient_sample.xml"),
             ("Exemplu charts", "feed_sample.xml"),
+            ("Exemplu SIUI", "siui_report_sample.xml"),
         ):
             b = QPushButton(label)
             b.setObjectName("GhostButton")
@@ -345,8 +347,8 @@ class MainWindow(QMainWindow):
         preview_palette.setColor(QPalette.ColorRole.Base, QColor("#0f172a"))
         self._preview.setPalette(preview_palette)
         self._preview.setPlaceholderText(
-            "Apăsați «Previzualizare» (Ctrl+P) după ce ați selectat câmpurile.\n\n"
-            "Modificările sunt doar în memorie până la export.",
+            "Conținutul fișierului apare aici după încărcare.\n\n"
+            "Bifați câmpuri și apăsați «Previzualizare» (Ctrl+P) pentru anonimizare.",
         )
         layout.addWidget(self._preview, stretch=1)
         return panel
@@ -410,7 +412,30 @@ class MainWindow(QMainWindow):
 
     def _invalidate_preview(self) -> None:
         self._preview_ready = False
+        if self._session.adapter is not None:
+            try:
+                self._session.discard_preview()
+                self._show_source_in_preview()
+            except Exception:  # noqa: BLE001
+                pass
         self._update_export_availability()
+
+    def _show_source_in_preview(self) -> None:
+        if self._session.adapter is None:
+            return
+        try:
+            text = self._session.document_text()
+        except Exception:  # noqa: BLE001
+            return
+        if self._preview:
+            self._preview.setPlainText(text[:500_000])
+        if self._preview_stats:
+            char_note = f"{len(text):,} caractere"
+            if len(text) > 500_000:
+                char_note += " (afișare trunchiată)"
+            self._preview_stats.setText(
+                f"Original — {char_note}. Bifați câmpuri, apoi «Previzualizare».",
+            )
 
     def _show_idle(self) -> None:
         if self._stack:
@@ -458,11 +483,7 @@ class MainWindow(QMainWindow):
             return
 
         self._preview_count = 0
-        self._invalidate_preview()
-        if self._preview:
-            self._preview.clear()
-        if self._preview_stats:
-            self._preview_stats.setText("Rulați previzualizarea pentru a vedea rezultatul")
+        self._preview_ready = False
 
         fields = self._session.fields()
         if self._file_title:
@@ -477,6 +498,8 @@ class MainWindow(QMainWindow):
             self._filter.blockSignals(False)
         self._show_workspace()
         self._populate_table(fields)
+        self._show_source_in_preview()
+        self._update_export_availability()
         self._status.showMessage(f"Încărcat: {path.name} — selectați câmpurile de anonimizat")
 
     def _populate_table(self, fields: dict) -> None:

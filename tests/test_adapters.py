@@ -13,6 +13,7 @@ from data_anonymizer.core.rules import FieldRule
 
 SAMPLE = Path(__file__).resolve().parents[1] / "samples" / "feed_sample.xml"
 MEDICAL = Path(__file__).resolve().parents[1] / "samples" / "medical_patient_sample.xml"
+SIUI = Path(__file__).resolve().parents[1] / "samples" / "siui_report_sample.xml"
 
 
 def test_detect_xml():
@@ -48,6 +49,28 @@ def test_medical_header_snapshot():
     header = doc.header_snapshot()
     assert "PATIENT_NAME" in header or "FACILITY_NAME" in header
     assert "Spitalul" in header.get("FACILITY_NAME", [""])[0]
+
+
+def test_siui_discovers_attributes():
+    doc = open_document(SIUI)
+    fields = doc.discover_fields()
+    assert "@report/hospitalCode" in fields
+    assert "@report/fiscalCode" in fields
+    assert "@DRG/AppID" in fields
+    assert "Spitalul Clinic" in fields["@report/hospitalCode"].sample_values[0]
+
+
+def test_siui_preview_redacts_attributes(tmp_path: Path):
+    session = AnonymizationSession.from_path(SIUI)
+    rules = [
+        FieldRule(field_id="@report/hospitalCode", method="redact"),
+        FieldRule(field_id="@report/fiscalCode", method="redact"),
+    ]
+    count, text = session.preview(rules, salt="x")
+    assert count == 2
+    assert "[anonimizat]" in text
+    assert "Spitalul Clinic Judetean de Urgenta Oradea" not in text
+    assert "4208498" not in text
 
 
 def test_unsupported_format(tmp_path: Path):

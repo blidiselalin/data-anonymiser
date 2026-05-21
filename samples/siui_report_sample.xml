@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Fisier de raportare XML generat de aplicatia Raportare SIUI  [v. 3.0.0.4 ]-->
+<report endTo="2025-01-31" startFrom="2025-01-01" reportingDate="2025-02-06" hospitalCode="Spitalul Clinic Judetean de Urgenta Oradea" AppID="20250206020229" contractNo="1502." insuranceHouse="CAS-BH" fiscalCode="4208498" xmlns="http://www.cnas.ro/siui/2.0">
+  <DRGS>
+    <DRG AppID="21003" hospitalDeptCode="1011-1" icmRealizat="2.1859" tcp="1854" realisedCasesNo="104" personType="ASIGURAT" fromDate="2025-01-01" toDate="2025-01-31" />
+  </DRGS>
+</report>
