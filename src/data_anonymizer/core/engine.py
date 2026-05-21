@@ -49,6 +49,17 @@ class AnonymizationSession:
         self._require_adapter()
         return self.adapter.header_snapshot()
 
+    def document_text(self) -> str:
+        """Serialize the current in-memory document (original until preview/export)."""
+        self._require_adapter()
+        return self.adapter.to_text()
+
+    def discard_preview(self) -> None:
+        """Reload original from disk if a preview was applied in memory."""
+        if self._preview_applied and self.source_path:
+            self.adapter.reset_to_original()
+            self._preview_applied = False
+
     def preview(self, rules: list[FieldRule], *, salt: str = "") -> tuple[int, str]:
         """Apply rules in memory and return (changed_count, text)."""
         self._require_adapter()

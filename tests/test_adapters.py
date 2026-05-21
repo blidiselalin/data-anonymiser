@@ -50,6 +50,25 @@ def test_medical_header_snapshot():
     assert "Spitalul" in header.get("FACILITY_NAME", [""])[0]
 
 
+def test_discovers_and_redacts_xml_attributes(tmp_path: Path):
+    xml = tmp_path / "attrs.xml"
+    xml.write_text(
+        '<?xml version="1.0"?><root id="secret"><item code="A1" /></root>',
+        encoding="utf-8",
+    )
+    doc = open_document(xml)
+    fields = doc.discover_fields()
+    assert "@root/id" in fields
+    assert "@item/code" in fields
+
+    session = AnonymizationSession.from_path(xml)
+    rules = [FieldRule(field_id="@root/id", method="redact")]
+    count, text = session.preview(rules, salt="x")
+    assert count == 1
+    assert "[anonimizat]" in text
+    assert "secret" not in text
+
+
 def test_unsupported_format(tmp_path: Path):
     bad = tmp_path / "data.xyz"
     bad.write_text("x", encoding="utf-8")
