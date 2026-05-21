@@ -409,8 +409,9 @@ class MainWindow(QMainWindow):
             self._export_act.setEnabled(show)
 
     def _invalidate_preview(self) -> None:
+        was_preview_ready = self._preview_ready
         self._preview_ready = False
-        if self._session.adapter is not None:
+        if was_preview_ready and self._session.adapter is not None:
             try:
                 self._session.discard_preview()
                 self._show_source_in_preview()
