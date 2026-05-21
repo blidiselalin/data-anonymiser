@@ -104,7 +104,6 @@ class MainWindow(QMainWindow):
         for name, fname in (
             ("Pacienți (XML medical)", "medical_patient_sample.xml"),
             ("Charts (XML)", "feed_sample.xml"),
-            ("SIUI (XML atribute)", "siui_report_sample.xml"),
         ):
             act = QAction(name, self)
             act.triggered.connect(lambda _=False, f=fname: self._load_sample(f))
@@ -176,7 +175,6 @@ class MainWindow(QMainWindow):
         for label, fname in (
             ("Exemplu medical", "medical_patient_sample.xml"),
             ("Exemplu charts", "feed_sample.xml"),
-            ("Exemplu SIUI", "siui_report_sample.xml"),
         ):
             b = QPushButton(label)
             b.setObjectName("GhostButton")
