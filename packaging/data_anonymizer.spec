@@ -3,7 +3,7 @@
 
 from pathlib import Path
 
-root = Path(SPECPATH).resolve().parent.parent
+root = Path(SPECPATH).resolve().parent
 src = root / "src"
 
 a = Analysis(
