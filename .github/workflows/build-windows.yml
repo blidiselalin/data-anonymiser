@@ -1,0 +1,23 @@
+name: Build Windows exe
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e ".[build]"
+      - run: pyinstaller packaging/data_anonymizer.spec
+      - uses: actions/upload-artifact@v4
+        with:
+          name: DataAnonymizer-windows
+          path: dist/DataAnonymizer.exe
+          if-no-files-found: error
