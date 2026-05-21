@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Export sintetic pacienți — doar pentru testare anonimizare GDPR.
+  Toate datele sunt fictive.
+-->
+<CLINICAL_EXPORT>
+    <FEED_HEADER>
+        <EXPORT_ID>EXP-2026-0517-001</EXPORT_ID>
+        <FACILITY_NAME>Spitalul Clinic de Test „Regina Maria”</FACILITY_NAME>
+        <EXPORT_DATE>2026-05-17</EXPORT_DATE>
+        <DATA_CONTROLLER>
+            <ORGANISATION_NAME>Trust Sanitar Exemplu SRL (demo)</ORGANISATION_NAME>
+            <DPO_CONTACT_NAME>Alexandru Popescu</DPO_CONTACT_NAME>
+            <DPO_EMAIL>dpo.demo@spital-test.invalid</DPO_EMAIL>
+            <DPO_PHONE>+40 21 555 0100</DPO_PHONE>
+        </DATA_CONTROLLER>
+        <LEGAL_BASIS>Art. 6(1)(f) interes legitim — set de date pentru teste</LEGAL_BASIS>
+        <SPECIAL_CATEGORY_NOTE>Conține date de sănătate Art. 9 GDPR — manipulare conformă</SPECIAL_CATEGORY_NOTE>
+    </FEED_HEADER>
+
+    <PATIENT_RECORDS>
+        <PATIENT>
+            <PATIENT_ID>PAC-10001</PATIENT_ID>
+            <MEDICAL_RECORD_NUMBER>CNAS-RO-8849201</MEDICAL_RECORD_NUMBER>
+            <CNP>2870314123456</CNP>
+            <PATIENT_NAME>Elena Vasilescu</PATIENT_NAME>
+            <DATE_OF_BIRTH>1987-03-14</DATE_OF_BIRTH>
+            <GENDER>F</GENDER>
+            <PATIENT_EMAIL>elena.vasilescu.demo@mail.exemplu</PATIENT_EMAIL>
+            <PATIENT_PHONE>+40 722 100 123</PATIENT_PHONE>
+            <HOME_ADDRESS>
+                <ADDRESS_LINE1>Strada Mărului nr. 42</ADDRESS_LINE1>
+                <ADDRESS_LINE2>Bloc A3, ap. 12</ADDRESS_LINE2>
+                <CITY>Cluj-Napoca</CITY>
+                <POSTCODE>400001</POSTCODE>
+                <COUNTRY>România</COUNTRY>
+            </HOME_ADDRESS>
+            <EMERGENCY_CONTACT_NAME>Mihai Vasilescu</EMERGENCY_CONTACT_NAME>
+            <EMERGENCY_CONTACT_PHONE>+40 722 100 124</EMERGENCY_CONTACT_PHONE>
+            <GP_NAME>Dr. Ioana Năstase</GP_NAME>
+            <GP_PRACTICE>Cabinet Medical Familia Verde</GP_PRACTICE>
+            <ALLERGIES>Penicilină — erupție cutanată</ALLERGIES>
+            <PRIMARY_DIAGNOSIS>Diabet zaharat tip 2 (E11.9)</PRIMARY_DIAGNOSIS>
+            <SECONDARY_DIAGNOSIS>Hipertensiune arterială esențială (I10)</SECONDARY_DIAGNOSIS>
+            <MEDICATION>Metformin 500 mg de două ori pe zi</MEDICATION>
+            <MEDICATION>Lisinopril 10 mg o dată pe zi</MEDICATION>
+            <LAST_VISIT_DATE>2026-04-22</LAST_VISIT_DATE>
+            <CLINICAL_NOTES>
+                HbA1c 7,2% la ultima consultație. Pacienta raportează respectarea dietei.
+                Discutat îngrijirea piciorului; fără simptome de neuropatie.
+            </CLINICAL_NOTES>
+            <INSURANCE_MEMBER_ID>ASIG-DEMO-4482910</INSURANCE_MEMBER_ID>
+        </PATIENT>
+
+        <PATIENT>
+            <PATIENT_ID>PAC-10002</PATIENT_ID>
+            <MEDICAL_RECORD_NUMBER>CNAS-RO-8849202</MEDICAL_RECORD_NUMBER>
+            <CNP>1721102234567</CNP>
+            <PATIENT_NAME>Andrei Georgescu</PATIENT_NAME>
+            <DATE_OF_BIRTH>1972-11-02</DATE_OF_BIRTH>
+            <GENDER>M</GENDER>
+            <PATIENT_EMAIL>andrei.georgescu.demo@mail.exemplu</PATIENT_EMAIL>
+            <PATIENT_PHONE>+40 733 200 456</PATIENT_PHONE>
+            <HOME_ADDRESS>
+                <ADDRESS_LINE1>Bulevardul Unirii nr. 18</ADDRESS_LINE1>
+                <ADDRESS_LINE2></ADDRESS_LINE2>
+                <CITY>Brașov</CITY>
+                <POSTCODE>500001</POSTCODE>
+                <COUNTRY>România</COUNTRY>
+            </HOME_ADDRESS>
+            <EMERGENCY_CONTACT_NAME>Maria Georgescu</EMERGENCY_CONTACT_NAME>
+            <EMERGENCY_CONTACT_PHONE>+40 733 200 457</EMERGENCY_CONTACT_PHONE>
+            <GP_NAME>Dr. Elena Marinescu</GP_NAME>
+            <GP_PRACTICE>Centrul Medical Corona</GP_PRACTICE>
+            <ALLERGIES>Fără alergii cunoscute</ALLERGIES>
+            <PRIMARY_DIAGNOSIS>Astm persistent ușor (J45.30)</PRIMARY_DIAGNOSIS>
+            <SECONDARY_DIAGNOSIS></SECONDARY_DIAGNOSIS>
+            <MEDICATION>Salbutamol inhaler la nevoie</MEDICATION>
+            <MEDICATION>Fluticazonă 100 mcg de două ori pe zi</MEDICATION>
+            <LAST_VISIT_DATE>2026-05-03</LAST_VISIT_DATE>
+            <CLINICAL_NOTES>
+                Debit expirator stabil. Recomandată vaccinarea antigripală anuală.
+                Fără internări în ultimele 12 luni.
+            </CLINICAL_NOTES>
+            <INSURANCE_MEMBER_ID>ASIG-DEMO-9921044</INSURANCE_MEMBER_ID>
+        </PATIENT>
+
+        <PATIENT>
+            <PATIENT_ID>PAC-10003</PATIENT_ID>
+            <MEDICAL_RECORD_NUMBER>CNAS-RO-8849203</MEDICAL_RECORD_NUMBER>
+            <CNP>2950728123456</CNP>
+            <PATIENT_NAME>Ioana Dumitrescu</PATIENT_NAME>
+            <DATE_OF_BIRTH>1995-07-28</DATE_OF_BIRTH>
+            <GENDER>F</GENDER>
+            <PATIENT_EMAIL>ioana.dumitrescu.demo@mail.exemplu</PATIENT_EMAIL>
+            <PATIENT_PHONE>+40 745 300 789</PATIENT_PHONE>
+            <HOME_ADDRESS>
+                <ADDRESS_LINE1>Strada Grădinii nr. 7</ADDRESS_LINE1>
+                <ADDRESS_LINE2></ADDRESS_LINE2>
+                <CITY>Iași</CITY>
+                <POSTCODE>700001</POSTCODE>
+                <COUNTRY>România</COUNTRY>
+            </HOME_ADDRESS>
+            <EMERGENCY_CONTACT_NAME>Vasile Dumitrescu</EMERGENCY_CONTACT_NAME>
+            <EMERGENCY_CONTACT_PHONE>+40 745 300 790</EMERGENCY_CONTACT_PHONE>
+            <GP_NAME>Dr. Radu Constantinescu</GP_NAME>
+            <GP_PRACTICE>Policlinica Mihai Eminescu</GP_PRACTICE>
+            <ALLERGIES>Latex — dermatită de contact</ALLERGIES>
+            <PRIMARY_DIAGNOSIS>Tulburare de anxietate generalizată (F41.1)</PRIMARY_DIAGNOSIS>
+            <SECONDARY_DIAGNOSIS>Migrenă fără aură (G43.0)</SECONDARY_DIAGNOSIS>
+            <MEDICATION>Sertralină 50 mg o dată pe zi</MEDICATION>
+            <MEDICATION>Sumatriptan 50 mg la nevoie</MEDICATION>
+            <LAST_VISIT_DATE>2026-05-10</LAST_VISIT_DATE>
+            <CLINICAL_NOTES>
+                Scor PHQ-9 îmbunătățit de la 14 la 9 în 8 săptămâni.
+                Discutată igiena somnului; control peste 6 săptămâni.
+            </CLINICAL_NOTES>
+            <INSURANCE_MEMBER_ID>ASIG-DEMO-7730156</INSURANCE_MEMBER_ID>
+        </PATIENT>
+    </PATIENT_RECORDS>
+</CLINICAL_EXPORT>

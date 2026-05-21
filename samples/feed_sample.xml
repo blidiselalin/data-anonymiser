@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Flux sintetic de date — exemplu pentru testare anonimizare.
+  Date fictive, limba română.
+-->
+<FEED>
+    <FEED_HEADER>
+        <FEED_NAME>Flux clasamente muzicale (exemplu)</FEED_NAME>
+        <CONTRACT>
+            <BUSINESS_CONTACT_NAME>Ioana Marin</BUSINESS_CONTACT_NAME>
+            <BUSINESS_CONTACT_PHONE>+40 21 555 0199</BUSINESS_CONTACT_PHONE>
+        </CONTRACT>
+    </FEED_HEADER>
+    <FEED_CONTENT>
+        <CHART>
+            <CHART_NAME>Top 100 România</CHART_NAME>
+            <CHART_DET>
+                <CHART_TITLE>Album Exemplu</CHART_TITLE>
+                <CHART_ARTIST>Trupa Exemplu</CHART_ARTIST>
+                <SONG_WRITER>Andrei Compozitorul</SONG_WRITER>
+                <CURRENT_POSITION>1</CURRENT_POSITION>
+            </CHART_DET>
+            <CHART_DET>
+                <CHART_TITLE>Alt Album</CHART_TITLE>
+                <CHART_ARTIST>Artist Local</CHART_ARTIST>
+                <SONG_WRITER>Maria Autor</SONG_WRITER>
+                <CURRENT_POSITION>2</CURRENT_POSITION>
+            </CHART_DET>
+        </CHART>
+    </FEED_CONTENT>
+</FEED>
